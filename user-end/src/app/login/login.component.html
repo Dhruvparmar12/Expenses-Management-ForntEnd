@@ -1,0 +1,44 @@
+<div class="wrapper fadeInDown" style="padding-top: 180px">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+      
+          <!-- Icon -->
+          <br>
+          <div class="fadeIn first">
+                <i class="fa fa-user" aria-hidden="true" >Sign In</i>
+            
+          </div>
+      
+          <!-- Login Form -->
+          <form [formGroup]="loginForm" (submit)="login()">
+            <input type="text" 
+            id="login" 
+            class="fadeIn second" 
+            formControlName="u_email"
+            placeholder="email"><br>
+            <span class="help-block" *ngIf="!loginForm.get('u_email').valid && loginForm.get('u_email').touched">Please Enter Valid Email</span>
+    
+            <input type="password" 
+            id="password" 
+            class="fadeIn third" 
+            formControlName="u_password"
+             placeholder="password">
+             <br>
+             <span class="help-block" *ngIf="!loginForm.get('u_password').valid && loginForm.get('u_password').touched">Please Enter Password</span>
+                   <br>    
+                   
+            
+            <input type="submit" class="fadeIn fourth" value="Sing In">
+            <input type="button" class="fadeIn fourth" value="Sign Up" routerLink="/signup">
+            
+           
+          </form>
+      
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" [routerLink]="['/forgetpassword']">Forgot Password?</a>
+          </div>
+      
+        </div>
+      </div>
+    

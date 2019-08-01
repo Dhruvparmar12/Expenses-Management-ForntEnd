@@ -1,0 +1,64 @@
+<div class="wrapper fadeInDown" style="padding-top: 180px">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <br>
+      <div class="fadeIn first">
+            <i class="fa fa-user" aria-hidden="true" >Sign Up</i>
+        
+      </div>
+  
+      <!-- Login Form -->
+      <form [formGroup]="signupForm" (submit)="signUp()">
+            <input type="text"             
+            class="fadeIn second" 
+            formControlName="u_name"
+            placeholder="User Name"><br>
+            <span class="help-block" *ngIf="!signupForm.get('u_name').valid && signupForm.get('u_name').touched">*Please Enter User Name and Name Max Length 50 </span>
+        <input type="text" 
+        
+        class="fadeIn second" 
+        formControlName="u_email"
+        placeholder="Email ID"><br>
+        <span class="help-block" *ngIf="!signupForm.get('u_email').valid && signupForm.get('u_email').touched">*Please Enter Valid Email</span>
+
+        <input type="password"      
+        class="fadeIn third" 
+        formControlName="u_password"
+         placeholder="Password">
+         <br>
+         <span class="help-block" *ngIf="!signupForm.get('u_password').valid && signupForm.get('u_password').touched">*Required, At-least 1 Capital, At-least 1 number, At-least 1 small char, Min-8, Max-20</span>
+       
+         <input type="password"      
+         class="fadeIn third" 
+         formControlName="c_password"
+          placeholder="Re-Password">
+          <br>
+          <span class="help-block" *ngIf="signupForm.get('c_password').valid && signupForm.get('c_password').touched && signupForm.get('c_password').value !== signupForm.get('u_password').value">*Required Same password as above</span>     
+         
+          <input type="text"      
+          class="fadeIn third" 
+          formControlName="u_mobile"
+           placeholder="Mobile Number">
+           <br>
+           <span class="help-block" *ngIf="!signupForm.get('u_mobile').valid && signupForm.get('u_mobile').touched">Mobile Number Should be min 10 max 13</span>
+               
+         <br>    
+               
+        
+        <input type="submit" class="fadeIn fourth" value="Sing Up" [disabled]="!signupForm.valid">
+        
+        
+       
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+       
+      </div>
+  
+    </div>
+  </div>
+
+
