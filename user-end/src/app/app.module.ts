@@ -10,6 +10,15 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { GroupComponent } from './group/group.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ExpensesComponent } from './expenses/expenses.component';
+import { ExpensesEditComponent } from './expenses/expenses-edit/expenses-edit.component';
+import { ExpensesAddComponent } from './expenses/expenses-add/expenses-add.component';
+import { GroupAddComponent } from './group/group-add/group-add.component';
+import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
+import { GroupEditComponent } from './group/group-edit/group-edit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +28,16 @@ import { HomeComponent } from './home/home.component';
     ErrorComponent,
     ForgetPasswordComponent,
     ChangePasswordComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    GroupComponent,
+    ProfileComponent,
+    ExpensesComponent,
+    ExpensesEditComponent,
+    ExpensesAddComponent,
+    GroupAddComponent,
+    ProfileEditComponent,
+    GroupEditComponent
   ],
   imports: [
     BrowserModule,

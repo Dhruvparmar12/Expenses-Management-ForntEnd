@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#"><img src="../../assets/images/brand_icon.png" alt="No Images" width="50px"
+                height="=50px"> Bill Split</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
+            <div class="justify-content-center">
+                <ul class="navbar-nav justify-content-center">
+                    <div>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/">Home</a>
+                            <!-- [routerLink]="['/home']" -->
+                        </li>
+                    </div>
+                    <div *ngIf="auth.isLoggedIN()">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/group">Group</a>
+                        </li>
+                    </div>
+                    <div *ngIf="auth.isLoggedIN()">
+                        <li class="nav-item">
+                            <a class="nav-link"routerLink="/expenses">My Expenses</a>
+                        </li>
+                    </div>
+                    <div *ngIf="auth.isLoggedIN()">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/profile">Profile</a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+
+            <div class="ml-auto" *ngIf="auth.isLoggedIN()">
+                <ul class="nav navbar-nav ">
+                    <li class="nav-item">
+                        <input type="button" class="btn btn-info" (click)="auth.logout()" value="Logout">
+                    </li>
+                </ul>
+            </div>
+            <div class="ml-auto" *ngIf="!auth.isLoggedIN()">
+                    <ul class="nav navbar-nav ">
+                        <li class="nav-item">
+                            <input type="button" class="btn btn-info" routerLink="/login" value="Login">
+                        </li>
+                    </ul>
+                </div>
+
+        </div>
+    </nav>
+    
+</div>

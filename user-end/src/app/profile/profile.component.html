@@ -1,0 +1,53 @@
+<div class="wrapper fadeInDown" >
+        <div id="formContent">
+          <!-- Tabs Titles -->
+      
+          <!-- Icon -->
+          <br>
+          <div class="fadeIn first">
+                <i class="fa fa-user" aria-hidden="true" >Profile</i>
+            
+          </div>
+      
+          <!-- Login Form -->
+          <form [formGroup]="profileForm" (submit)="updateProfile()">
+                <input type="text"             
+                class="fadeIn second" 
+                formControlName="u_name"
+                placeholder="User Name"><br>
+                <span class="help-block" *ngIf="!profileForm.get('u_name').valid && profileForm.get('u_name').touched">*Please Enter User Name and Name Max Length 50 </span>
+            <input type="text" 
+            
+            class="fadeIn second" 
+            formControlName="u_email"
+            placeholder="Email ID"><br>
+            <span class="help-block" *ngIf="!profileForm.get('u_email').valid && profileForm.get('u_email').touched">*Please Enter Valid Email</span>
+    
+            
+              <input type="text"      
+              class="fadeIn third" 
+              formControlName="u_mobile"
+               placeholder="Mobile Number">
+               <br>
+               <span class="help-block" *ngIf="!profileForm.get('u_mobile').valid && profileForm.get('u_mobile').touched">Mobile Number Should be min 10 max 13</span>
+                   
+             <br>    
+                   
+            
+            <input type="submit" class="fadeIn fourth" value="Update Profile" [disabled]="!profileForm.valid">
+            <input type="button" class="fadeIn fourth" value="Change Password" routerLink="/passwordreset" (click)="changePassword()">
+            
+            
+           
+          </form>
+      
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+           
+          </div>
+      
+        </div>
+      </div>
+    
+    
+    

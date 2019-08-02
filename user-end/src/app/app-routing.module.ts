@@ -6,14 +6,32 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { AuthguradService} from './authgurad.service';
 import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { GroupComponent } from './group/group.component';
+import { ExpensesComponent } from './expenses/expenses.component';
+import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
+import { GroupAddComponent } from './group/group-add/group-add.component';
+import { GroupEditComponent } from './group/group-edit/group-edit.component';
+import { ExpensesEditComponent } from './expenses/expenses-edit/expenses-edit.component';
+import { ExpensesAddComponent } from './expenses/expenses-add/expenses-add.component';
 
-const routes: Routes = [
-  {path:'',component:LoginComponent},
+const routes: Routes = [ 
+  {path:'',component:HomeComponent},
+  {path:'login',component:LoginComponent},
   {path:'signup', component:SignupComponent},
   {path:'forgetpassword',component:ForgetPasswordComponent},
   {path:'passwordreset',component:ChangePasswordComponent},
-  {path:'home',component:HomeComponent,canActivate: [AuthguradService]}
-  ];
+  {path:'home',component:HomeComponent,canActivate: [AuthguradService]},
+  {path:'profile',component:ProfileComponent,canActivate: [AuthguradService]},
+  {path:'profile/:id',component:ProfileEditComponent,canActivate: [AuthguradService]},
+  {path:'group',component:GroupComponent,canActivate: [AuthguradService]},
+  {path:'addgroup',component:GroupAddComponent,canActivate: [AuthguradService]},
+  {path:'editgroup',component:GroupEditComponent,canActivate: [AuthguradService]},
+  {path:'expenses',component:ExpensesComponent,canActivate: [AuthguradService]},
+  {path:'addexpenses',component:ExpensesAddComponent,canActivate: [AuthguradService]},
+  {path:'editexpenses',component:ExpensesEditComponent,canActivate: [AuthguradService]},
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -38,7 +38,7 @@ export class AuthenticationService {
 
   url = 'http://localhost:1313/'
   private saveToken(token: string, id: number): void {
-    localStorage.setItem('userId', String(id));
+    localStorage.setItem('user_id', String(id));
     localStorage.setItem('userToken', token)
     this.token = token
   }
@@ -101,6 +101,21 @@ export class AuthenticationService {
   public logout(): void {
     this.token = ''
     window.localStorage.removeItem('userToken')
+    window.localStorage.removeItem('user_id')
     this.route.navigate(['/'])
+  }
+
+  public profile(): Observable<any> {
+     
+    return this.http.get(`http://localhost:1313/user/profile`, {
+      headers: { Authorization: ` ${this.getToken()}` }
+    })
+  }
+
+  public updateProfile(data,id): Observable<any> {
+   
+    return this.http.patch(`http://localhost:1313/user/update/${id}`,data, {
+      headers: { Authorization: ` ${this.getToken()}` }
+    })
   }
 }
