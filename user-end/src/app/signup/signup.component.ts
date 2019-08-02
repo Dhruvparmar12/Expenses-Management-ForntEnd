@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['../../assets/css/form.css']
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  constructor(private route:Router) { }
+  constructor(private route:Router, private auth:AuthenticationService) { }
 
   ngOnInit() {
     this.signupForm = new FormGroup({
@@ -22,6 +23,19 @@ export class SignupComponent implements OnInit {
   }
 
   signUp(){
-    this.route.navigate(['/'])
+    this.auth.register(this.signupForm.value).subscribe(res=>{
+      if(res){
+        alert(res.msg);
+        this.route.navigate(['/']);
+      }      
+    },
+    err=>{
+      if(err){
+        alert(err.error.msg);
+      }
+    }
+    
+    )
+    
   }
 }

@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
-  styleUrls: ['./forget-password.component.css']
+  styleUrls: ['../../assets/css/form.css']
 })
 export class ForgetPasswordComponent implements OnInit {
   forgetPasswordForm:FormGroup;
-  constructor() { }
+  constructor(private auth:AuthenticationService) { }
 
   ngOnInit() {
     this.forgetPasswordForm= new FormGroup({
@@ -17,6 +18,15 @@ export class ForgetPasswordComponent implements OnInit {
   }
 
   forgetPassword(){
-    localStorage.setItem('u_email',this.forgetPasswordForm.get('u_email').value)
+    this.auth.forgetPassword(this.forgetPasswordForm.value).subscribe(res=>{
+      if(res){
+        alert(res.msg);
+        localStorage.setItem('u_email',this.forgetPasswordForm.get('u_email').value)
+      }
+    },
+    err=>{
+        alert(err.error['msg']);
+    })
+    
   }
 }
