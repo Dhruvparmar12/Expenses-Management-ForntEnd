@@ -1,0 +1,24 @@
+<div class="container">
+        <h2>Group Member</h2>
+                    
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Sattle Up</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let member of members">
+              <td>{{member?.u_name}}</td>
+              <td>{{member?.amount}}</td>
+              <td>{{member?.status}}</td>
+              <td> <input type="button" class="btn btn-success" value="+ SattleUp" (click)="sattleup(member?.s_b_id)" [disabled]="member?.status=='paid'">  </td>
+              
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>

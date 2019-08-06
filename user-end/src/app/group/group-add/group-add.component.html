@@ -1,1 +1,20 @@
-<p>group-add works!</p>
+<br>
+<div class="container" style="width:350px">
+
+        <h2>Create Group</h2>
+        <hr>
+        <form [formGroup]="addnewGroup" (submit)="addGroup()">
+          <div class="form-group">
+            <label for="e_name">Group Name:</label>
+            <input type="text"
+             class="form-control" 
+             placeholder="Enter Group Name" 
+             formControlName="g_name">
+          </div>
+          <span class="help-block"
+                *ngIf="!addnewGroup.get('g_name').valid && addnewGroup.get('g_name').touched">*Required,Please Enter Group Name</span>
+        
+            <br> <button type="submit" class="btn btn-primary">Create Group</button>
+        </form>
+      </div>
+

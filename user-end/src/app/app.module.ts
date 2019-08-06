@@ -19,6 +19,10 @@ import { ExpensesAddComponent } from './expenses/expenses-add/expenses-add.compo
 import { GroupAddComponent } from './group/group-add/group-add.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 import { GroupEditComponent } from './group/group-edit/group-edit.component';
+import { SpiltwiseComponent } from './spiltwise/spiltwise.component';
+import { MemberComponent } from './member/member.component';
+import { AddSplitComponent } from './spiltwise/add-split/add-split.component';
+import { GroupMemberComponent } from './spiltwise/group-member/group-member.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { GroupEditComponent } from './group/group-edit/group-edit.component';
     ExpensesAddComponent,
     GroupAddComponent,
     ProfileEditComponent,
-    GroupEditComponent
+    GroupEditComponent,
+    SpiltwiseComponent,
+    MemberComponent,
+    AddSplitComponent,
+    GroupMemberComponent
   ],
   imports: [
     BrowserModule,

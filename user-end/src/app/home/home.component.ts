@@ -5,9 +5,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../../assets/css/form.css']
 })
 export class HomeComponent implements OnInit {
-  
-  constructor() { }
+  userName:string;
+  constructor() { 
+    this.userName=localStorage.getItem('u_name')
+  }
 
-  ngOnInit() { }
+  ngOnInit() {    
+     
+   }
 
 }

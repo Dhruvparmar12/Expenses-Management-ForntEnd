@@ -43,7 +43,7 @@ export class AuthenticationService {
     this.token = token
   }
 
-  private getToken(): string {
+  public getToken(): string {
     if (!this.token) {
       this.token = localStorage.getItem('userToken')
     }
@@ -102,6 +102,8 @@ export class AuthenticationService {
     this.token = ''
     window.localStorage.removeItem('userToken')
     window.localStorage.removeItem('user_id')
+    window.localStorage.removeItem('u_name')
+    window.localStorage.removeItem('g_id')
     this.route.navigate(['/'])
   }
 

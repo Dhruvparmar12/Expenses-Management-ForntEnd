@@ -1,1 +1,31 @@
-<p>expenses works!</p>
+
+<br>
+<div class="container">
+        <h2>My Expensive</h2>
+        <br>
+     <input type="button" class="btn btn-primary" (click)="onAdd()" value="Add New Expenses">  
+   <hr>
+   
+    <p *ngIf="!expnses.length>0">No any Expneses found.. please add new Expneses</p>
+    <table *ngIf="expnses.length>0" class="table">
+        <thead>
+            <tr>
+                <th>Expense Name</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of expnses" class="table-info">
+                <td>{{data?.e_name}}</td>
+                <td>{{data?.e_amount}}</td>
+                <td>{{data?.e_date.slice(0,10)}}</td>
+                <td><input type="button" class="btn btn-success" (click)="onEdit(data?.e_id)" value="Edit"></td>
+                <td><input type="button" class="btn btn-danger" (click)="onDelete(data?.e_id)" value="Delete"></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

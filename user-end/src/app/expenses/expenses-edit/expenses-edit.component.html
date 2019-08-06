@@ -1,1 +1,37 @@
-<p>expenses-edit works!</p>
+
+<br>
+<div class="container" style="width:350px">
+
+        <h2>Update Expenses</h2>
+        <hr>
+        <form [formGroup]="editExpensesForm" (submit)="updateExpenses()">
+          <div class="form-group">
+            <label for="e_name">Expenses Name:</label>
+            <input type="text"
+             class="form-control" 
+             placeholder="Enter Expenses Name" 
+             formControlName="e_name">
+          </div>
+          <span class="help-block"
+                *ngIf="!editExpensesForm.get('e_name').valid && editExpensesForm.get('e_name').touched">*Required,Please Enter Name</span>
+          <div class="form-group">
+            <label for="e_amount">Expenses Amount:</label>
+            <input type="number"
+             class="form-control" 
+              placeholder="Enter Expenses Amount"
+              formControlName="e_amount" >
+          </div>
+          <span class="help-block"
+                *ngIf="!editExpensesForm.get('e_amount').valid && editExpensesForm.get('e_amount').touched">*Required,Please Enter Amount</span>
+          <div class="form-group">
+                <label for="e_date">Expenses Date:</label>
+                <input type="date" 
+                class="form-control"  
+                placeholder="Enter Expenses Amount"
+                formControlName="e_date" >
+              </div>
+              <span class="help-block"
+              *ngIf="!editExpensesForm.get('e_date').valid && editExpensesForm.get('e_date').touched">*Required,Please Select Date</span>
+         <br> <button type="submit" class="btn btn-primary">Update Expenses</button>
+        </form>
+      </div>

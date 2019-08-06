@@ -14,6 +14,10 @@ import { GroupAddComponent } from './group/group-add/group-add.component';
 import { GroupEditComponent } from './group/group-edit/group-edit.component';
 import { ExpensesEditComponent } from './expenses/expenses-edit/expenses-edit.component';
 import { ExpensesAddComponent } from './expenses/expenses-add/expenses-add.component';
+import { SpiltwiseComponent } from './spiltwise/spiltwise.component';
+import { MemberComponent } from './member/member.component';
+import { AddSplitComponent } from './spiltwise/add-split/add-split.component';
+import { GroupMemberComponent } from './spiltwise/group-member/group-member.component';
 
 const routes: Routes = [ 
   {path:'',component:HomeComponent},
@@ -29,8 +33,11 @@ const routes: Routes = [
   {path:'editgroup',component:GroupEditComponent,canActivate: [AuthguradService]},
   {path:'expenses',component:ExpensesComponent,canActivate: [AuthguradService]},
   {path:'addexpenses',component:ExpensesAddComponent,canActivate: [AuthguradService]},
-  {path:'editexpenses',component:ExpensesEditComponent,canActivate: [AuthguradService]},
-
+  {path:'editexpenses/:id',component:ExpensesEditComponent,canActivate: [AuthguradService]},
+  {path:'splitwise',component:SpiltwiseComponent,canActivate: [AuthguradService]},
+  {path:'addsplitwise',component:AddSplitComponent,canActivate: [AuthguradService]},
+  {path:'addmember',component:MemberComponent,canActivate: [AuthguradService]},
+  {path:'groupmember',component:GroupMemberComponent,canActivate: [AuthguradService]},
 ];
 
 @NgModule({

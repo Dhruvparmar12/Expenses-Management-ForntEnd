@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
+import { Profile } from 'selenium-webdriver/firefox';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  valid=true
-  constructor(private auth:AuthenticationService, private route:Router) { }
+ 
+  userName:string;
+  constructor(private auth:AuthenticationService, private route:Router) { 
+    this.userName=localStorage.getItem('u_name')
+  }
 
   ngOnInit() {
+   
+    
+     
   }
 
 }

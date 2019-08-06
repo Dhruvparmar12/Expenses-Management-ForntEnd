@@ -1,0 +1,26 @@
+<br>
+<div class="container">
+    <h2>Add Member</h2>
+    <hr>
+    <input type="button" class="btn btn-primary" (click)="onAdd()" value="Add New Expenses">
+     <hr>
+
+    
+    <p *ngIf="!members.length > 0">No Member Here.!</p>
+    <table *ngIf="members.length >0" class="table">
+        <thead>
+            <tr>
+                <th>Member Name</th>
+                <th>Add</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of members" class="table-info">
+                <td>{{data?.u_name}}</td>
+                <td><input type="button" class="btn btn-success" (click)="addMember(data?.u_id)" value="Add"></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>
