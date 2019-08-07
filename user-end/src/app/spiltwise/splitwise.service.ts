@@ -34,7 +34,7 @@ export class SplitwiseService {
   }
 
   public sattleup(index, data): Observable<any> {
-    return this.http.patch(`http://localhost:1313/splitexpenses/update/${index}`,data, {
+    return this.http.patch(`${this.auth.url}splitexpenses/update/${index}`,data, {
       headers: { Authorization: ` ${this.auth.getToken()}` }
     })
   }

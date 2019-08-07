@@ -35,17 +35,15 @@ export class GroupMemberComponent implements OnInit, OnDestroy {
     })
   }
 
-  sattleup(id) {
-    console.log(this.data)
-    console.log(localStorage.getItem('user_id'))
-    // this.member.sattleup(id,this.data).subscribe(res=>{
-    //   if(res){
-    //     alert(res.msg);
-    //     this.getMember();
-    //   }
-    // },err=>{
-    //     alert(err.error);
-    // })
+  sattleup(id) {       
+    this.member.sattleup(localStorage.getItem('splitexpense_id'),this.data).subscribe(res=>{
+      if(res){
+        alert(res.msg);
+        this.getMember();
+      }
+    },err=>{
+        alert(err.error);
+    })
 
   }
 
