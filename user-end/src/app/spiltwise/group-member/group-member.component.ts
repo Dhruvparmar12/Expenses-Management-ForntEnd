@@ -8,43 +8,48 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./group-member.component.css']
 })
 export class GroupMemberComponent implements OnInit, OnDestroy {
-  members=[]
-  data={
-    status:'paid'
+  members = []
+  data = {
+    status: 'paid'
   }
-  temp=false
-  constructor(private member:SplitwiseService, private route:ActivatedRoute) {
-    
-   }
+  status = "";
+
+  constructor(private member: SplitwiseService, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
-  this.getMember(); 
+    this.getMember();
   }
-  getMember(){
-    this.member.getMember(localStorage.getItem('splitexpense_id')).subscribe(res=>{
-      if(res){
-        this.members=res;  
-        console.log(this.members)     
+  getMember() {
+    this.member.getMember(localStorage.getItem('splitexpense_id')).subscribe(res => {
+      if (res) {
+        this.members = res;
+        for (let member of this.members) {
+          if (member["u_id"] == localStorage.getItem('user_id')) {
+            this.status = member["status"];
+          }
+        }
       }
-    },err=>{
+    }, err => {
       alert(err.error.message);
-    })  
-  }
-
-  sattleup(id){
-    console.log(this.data)
-    this.member.sattleup(id,this.data).subscribe(res=>{
-      if(res){
-        alert(res.msg);
-        this.getMember();
-      }
-    },err=>{
-        alert(err.error);
     })
+  }
+
+  sattleup(id) {
+    console.log(this.data)
+    console.log(localStorage.getItem('user_id'))
+    // this.member.sattleup(id,this.data).subscribe(res=>{
+    //   if(res){
+    //     alert(res.msg);
+    //     this.getMember();
+    //   }
+    // },err=>{
+    //     alert(err.error);
+    // })
 
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     localStorage.removeItem('splitexpense_id');
   }
 }
