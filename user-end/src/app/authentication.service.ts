@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router'
+import { url } from '../url'
 
 export interface UserDetails {
   u_id: number
@@ -73,11 +74,11 @@ export class AuthenticationService {
   }
 
   public register(user: TokenPayload): Observable<any> {
-    return this.http.post(this.url + `user/add`, user)
+    return this.http.post(url.myurl + `user/add`, user)
   }
 
   public login(user: TokenPayload): Observable<any> {
-    const base = this.http.post(this.url + `user/login`, user)
+    const base = this.http.post(url.myurl + `user/login`, user)
 
     const request = base.pipe(
       map((data: TokenResponse) => {
@@ -91,11 +92,11 @@ export class AuthenticationService {
   }
 
   public forgetPassword(user: TokenPayload): Observable<any> {
-    return this.http.post(this.url + `user/forgetpassword`, user)
+    return this.http.post(url.myurl + `user/forgetpassword`, user)
   }
 
   public changePassword(user: TokenPayload): Observable<any> {
-    return this.http.patch(this.url + `user/resetpassword`, user)
+    return this.http.patch(url.myurl + `user/resetpassword`, user)
   }
 
   public logout(): void {
@@ -109,14 +110,14 @@ export class AuthenticationService {
 
   public profile(): Observable<any> {
      
-    return this.http.get(`http://localhost:1313/user/profile`, {
+    return this.http.get(url.myurl +`/user/profile`, {
       headers: { Authorization: ` ${this.getToken()}` }
     })
   }
 
   public updateProfile(data,id): Observable<any> {
    
-    return this.http.patch(`http://localhost:1313/user/update/${id}`,data, {
+    return this.http.patch( url.myurl + `/user/update/${id}`,data, {
       headers: { Authorization: ` ${this.getToken()}` }
     })
   }

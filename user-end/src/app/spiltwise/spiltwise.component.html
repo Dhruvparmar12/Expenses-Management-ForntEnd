@@ -1,56 +1,62 @@
 <br>
 <div class="container" style="width:100%">
-    <input type="button" class="btn btn-primary" value="+ Create a New Group" (click)="createGroup()">
-    <hr>
-   
-              
-        <div class="row">           
-            <div class="col-4">
-                <h2>My Groups List</h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Group Name</th>
-                            <th scope="col">Select Group</th>
-                        </tr>  
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let group of groups">
-                            <th scope="row">{{group?.g_name}}</th>
-                            <td><input type="button" class="btn btn-primary" value="+ Select Group"
-                                    (click)="selectGroup(group?.g_id)"></td>
-                        </tr>
+    <div>
+        <ul>
+            <input type="button" class="btn btn-primary ml-3" value="+ Create a New Group" (click)="createGroup()">
+           
+            <label for="Borrow" class="ml-3"> <h4> Borrow Amount: </h4></label> Rs/- {{borrow}} 
+                <label for="Borrow" class="ml-3"> <h4>Lant Amount: </h4></label> Rs/- {{lant}}
+        </ul>
+    </div>
 
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-8">
-                    <h2>My Split Expenses List</h2>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">Expenses Name</th>
-                                <th scope="col">Group Name</th>
-                                <th scope="col">Expenses Amount</th>
-                                <th scope="col">Expenses Date</th>
-                                <th scope="col">Select Expenses</th>
-                            </tr>  
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let expens of Expenses">
-                                <th scope="row">{{expens?.e_name}}</th>
-                                <th scope="row">{{expens?.g_name}}</th>
-                                <th scope="row">{{expens?.e_amount}}</th>
-                                <th scope="row">{{expens?.e_date.slice(0,10)}}</th>
-                                <td><input type="button" class="btn btn-primary" value="+ Select Expenses"
-                                        (click)=" selectMember(expens?.s_e_id)"></td>
-                            </tr>
-    
-                        </tbody>
-                    </table>
+    <hr>
+    <div class="row">
+        <div class="col-4">
+            <h2>My Groups List</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr class="bg-warning">
+                        <th scope="col">Group Name</th>
+                        <th scope="col">Select Group</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let group of groups">
+                        <th scope="row">{{group?.g_name}}</th>
+                        <td><input type="button" class="btn btn-info" value="+ Select Group"
+                                (click)="selectGroup(group?.g_id)"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-8">
+            <h2>My Split Expenses List</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr class="bg-warning">
+                        <th scope="col">Expenses Name</th>
+                        <th scope="col">Group Name</th>
+                        <th scope="col">Expenses Amount</th>
+                        <th scope="col">Expenses Date</th>
+                        <th scope="col">Select Expenses</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let expens of Expenses">
+                        <th scope="row">{{expens?.e_name}}</th>
+                        <th scope="row">{{expens?.g_name}}</th>
+                        <th scope="row">{{expens?.e_amount}}</th>
+                        <th scope="row">{{expens?.e_date.slice(0,10)}}</th>
+                        <td><input type="button" class="btn btn-success" value="+ Select Expenses"
+                                (click)=" selectMember(expens?.s_e_id)"></td>
+                    </tr>
+
+                </tbody>
+            </table>
         </div>
 
-            
-           
-   
-</div>
+
+
+
+    </div>

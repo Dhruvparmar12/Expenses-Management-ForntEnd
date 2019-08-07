@@ -3,6 +3,7 @@ import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { url } from '../../url';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +13,13 @@ export class MemberService {
   constructor(private auth:AuthenticationService, private route: Router, private http: HttpClient) { }
 
   public getMember(): Observable<any> {
-    return this.http.get(`${this.auth.url}user/alluser`, {
+    return this.http.get(`${url.myurl}user/alluser`, {
       headers: { Authorization: ` ${this.auth.getToken()}` }
     })
   }
 
   public addMember(data): Observable<any> {
-    return this.http.post(`${this.auth.url}member/add`, data, {
+    return this.http.post(`${url.myurl}member/add`, data, {
       headers: { Authorization: ` ${this.auth.getToken()}` }
     })
   }

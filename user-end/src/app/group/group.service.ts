@@ -3,6 +3,7 @@ import { AuthenticationService } from '../authentication.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { url } from '../../url';
 
 @Injectable({
   providedIn: 'root'
@@ -13,36 +14,36 @@ export class GroupService {
   constructor(private auth: AuthenticationService, private route: Router, private http: HttpClient) { }
 
   public getGroup(): Observable<any> {
-    return this.http.get(`http://localhost:1313/groups/allexpenses`, {
+    return this.http.get(`${url.myurl}groups/allexpenses`, {
       headers: { Authorization: ` ${this.auth.getToken()}` }
     })
   }
 
   public addGroup(data): Observable<any> {
-    return this.http.post(`http://localhost:1313/groups/add`, data, {
+    return this.http.post(`${url.myurl}groups/add`, data, {
       headers: { Authorization: ` ${this.auth.getToken()}` }
     })
   }
   public addMember(data): Observable<any> {
-    return this.http.post(`http://localhost:1313/member/add`, data, {
+    return this.http.post(`${url.myurl}member/add`, data, {
       headers: { Authorization: ` ${this.auth.getToken()}` }
     })
   }
 
   public findGroup(index: number): Observable<any> {
-    return this.http.get(`http://localhost:1313/groups/${index}`, {
+    return this.http.get(`${url.myurl}groups/${index}`, {
       headers: { Authorization: ` ${this.auth.getToken()}` }
     })
   }
 
   public deleteGroup(index: number): Observable<any> {
-    return this.http.delete(`http://localhost:1313/groups/delete/${index}`, {
+    return this.http.delete(`${url.myurl}groups/delete/${index}`, {
       headers: { Authorization: ` ${this.auth.getToken()}` }
     })
   }
 
   public updateGroup(data, index): Observable<any> {
-    return this.http.patch(`http://localhost:1313/groups/update/${index}`, data, {
+    return this.http.patch(`${url.myurl}groups/update/${index}`, data, {
       headers: { Authorization: ` ${this.auth.getToken()}` }
     })
   }
