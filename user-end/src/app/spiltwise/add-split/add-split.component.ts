@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SplitwiseService } from '../splitwise.service';
+import { SplitwiseService } from '../../services/splitwise.service';
 
 @Component({
   selector: 'app-add-split',

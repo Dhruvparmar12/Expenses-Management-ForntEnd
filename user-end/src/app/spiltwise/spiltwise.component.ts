@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SplitwiseService } from './splitwise.service';
+import { SplitwiseService } from '../services/splitwise.service';
 
 @Component({
   selector: 'app-spiltwise',
@@ -10,7 +10,7 @@ import { SplitwiseService } from './splitwise.service';
 export class SpiltwiseComponent implements OnInit {
   groups = [];
   Expenses = [];
-  lant;
+  land;
   borrow;
   constructor(private route: Router, private split: SplitwiseService) {
     this.getAmount()
@@ -39,10 +39,10 @@ export class SpiltwiseComponent implements OnInit {
   getAmount() {
     this.split.getStatus().subscribe(res => {
       if (res) {
-        this.lant = res['Lant'][0]['Lant'];
+        this.land = res['Land'][0]['Land'];
         this.borrow = res['Borrow'][0]['Borrow']
-        if(this.lant==null){
-          this.lant=0
+        if(this.land==null){
+          this.land=0
         }
         if(this.borrow==null){
           this.borrow=0

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SplitwiseService } from '../splitwise.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { SplitwiseService } from '../../services/splitwise.service';
+import {  ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-group-member',

@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { AuthguradService} from './authgurad.service';
+import { AuthguradService} from './services/authgurad.service';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GroupComponent } from './group/group.component';

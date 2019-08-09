@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router'
-import { url } from '../url'
+import { url } from '../../url'
 
 export interface UserDetails {
   u_id: number
@@ -109,15 +109,15 @@ export class AuthenticationService {
   }
 
   public profile(): Observable<any> {
-     
-    return this.http.get(url.myurl +`/user/profile`, {
+
+    return this.http.get(url.myurl + `/user/profile`, {
       headers: { Authorization: ` ${this.getToken()}` }
     })
   }
 
-  public updateProfile(data,id): Observable<any> {
-   
-    return this.http.patch( url.myurl + `/user/update/${id}`,data, {
+  public updateProfile(data, id): Observable<any> {
+
+    return this.http.patch(url.myurl + `/user/update/${id}`, data, {
       headers: { Authorization: ` ${this.getToken()}` }
     })
   }
