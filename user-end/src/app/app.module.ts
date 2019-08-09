@@ -8,7 +8,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ErrorComponent } from './error/error.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { GroupComponent } from './group/group.component';
@@ -23,6 +23,7 @@ import { SpiltwiseComponent } from './spiltwise/spiltwise.component';
 import { MemberComponent } from './member/member.component';
 import { AddSplitComponent } from './spiltwise/add-split/add-split.component';
 import { GroupMemberComponent } from './spiltwise/group-member/group-member.component';
+import { HeaderInterceptorsService } from './services/header-interceptors.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,14 @@ import { GroupMemberComponent } from './spiltwise/group-member/group-member.comp
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptorsService,
+      multi: true
+    },
+  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

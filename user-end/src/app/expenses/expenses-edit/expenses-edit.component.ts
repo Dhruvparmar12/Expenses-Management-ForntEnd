@@ -38,13 +38,11 @@ export class ExpensesEditComponent implements OnInit {
   }
 
   updateExpenses(){
-
-    console.log(this.editExpensesForm.value);
-    console.log(this.id);
     
     this.exp.updateExpenses(this.editExpensesForm.value,this.id).subscribe(res=>{
       if(res){
        alert(res.msg);
+       this.route.navigate(['/expenses'])
       }
     },err=>{
       if(err){

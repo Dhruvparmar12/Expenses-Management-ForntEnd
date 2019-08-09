@@ -12,9 +12,7 @@ export class SplitwiseService {
   constructor(private auth:AuthenticationService, private route: Router, private http: HttpClient) { }
   
   public addExpnses(data): Observable<any> {
-    return this.http.post(`${url.myurl}splitexpenses/add`, data, {
-      headers: { Authorization: ` ${this.auth.getToken()}` }
-    })
+    return this.http.post(`${url.myurl}splitexpenses/add`, data)
   }
 
   public getMyGroups(): Observable<any> {
@@ -23,27 +21,19 @@ export class SplitwiseService {
     })
   }
   public getMySplitExpenses(): Observable<any> {
-    return this.http.get(`${url.myurl}splitexpenses/allexpenses`, {
-      headers: { Authorization: ` ${this.auth.getToken()}` }
-    })
+    return this.http.get(`${url.myurl}splitexpenses/allexpenses`)
   }
 
   public getMember(id): Observable<any> {
-    return this.http.get(`${url.myurl}splitexpenses/allmember/${id}`, {
-      headers: { Authorization: ` ${this.auth.getToken()}` }
-    })
+    return this.http.get(`${url.myurl}splitexpenses/allmember/${id}`)
   }
 
   public sattleup(index, data): Observable<any> {
-    return this.http.patch(`${url.myurl}splitexpenses/update/${index}`,data, {
-      headers: { Authorization: ` ${this.auth.getToken()}` }
-    })
+    return this.http.patch(`${url.myurl}splitexpenses/update/${index}`,data)
   }
   
   public getStatus(): Observable<any> {
-    return this.http.get(`${url.myurl}splitexpenses/amount`, {
-      headers: { Authorization: ` ${this.auth.getToken()}` }
-    })
+    return this.http.get(`${url.myurl}splitexpenses/amount`)
   }
 
  

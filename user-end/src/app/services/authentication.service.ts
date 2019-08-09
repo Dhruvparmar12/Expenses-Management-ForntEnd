@@ -37,7 +37,6 @@ export class AuthenticationService {
   private token: string
   constructor(private http: HttpClient, private route: Router) { }
 
-  url = 'http://localhost:1313/'
   private saveToken(token: string, id: number): void {
     localStorage.setItem('user_id', String(id));
     localStorage.setItem('userToken', token)
@@ -110,15 +109,11 @@ export class AuthenticationService {
 
   public profile(): Observable<any> {
 
-    return this.http.get(url.myurl + `/user/profile`, {
-      headers: { Authorization: ` ${this.getToken()}` }
-    })
+    return this.http.get(url.myurl + `/user/profile`)
   }
 
   public updateProfile(data, id): Observable<any> {
 
-    return this.http.patch(url.myurl + `/user/update/${id}`, data, {
-      headers: { Authorization: ` ${this.getToken()}` }
-    })
+    return this.http.patch(url.myurl + `/user/update/${id}`, data)
   }
 }
