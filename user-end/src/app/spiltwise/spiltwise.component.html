@@ -3,9 +3,13 @@
     <div>
         <ul>
             <input type="button" class="btn btn-primary ml-3" value="+ Create a New Group" (click)="createGroup()">
-           
-            <label for="Borrow" class="ml-3"> <h4> Borrow Amount: </h4></label> Rs/- {{borrow}} 
-                <label for="Borrow" class="ml-3"> <h4> Land Amount: </h4></label> Rs/- {{land}}
+
+            <label for="Borrow" class="ml-3">
+                <h4> Borrow Amount: </h4>
+            </label> Rs/- {{borrow}}
+            <label for="Borrow" class="ml-3">
+                <h4> Land Amount: </h4>
+            </label> Rs/- {{land}}
         </ul>
     </div>
 
@@ -35,6 +39,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr class="bg-warning">
+                        <th scope="col">Created by</th>
                         <th scope="col">Expenses Name</th>
                         <th scope="col">Group Name</th>
                         <th scope="col">Expenses Amount</th>
@@ -44,6 +49,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let expens of Expenses">
+                        <th scope="row">{{expens?.u_name}}</th>
                         <th scope="row">{{expens?.e_name}}</th>
                         <th scope="row">{{expens?.g_name}}</th>
                         <th scope="row">{{expens?.e_amount}}</th>
