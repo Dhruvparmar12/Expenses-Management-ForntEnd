@@ -39,7 +39,7 @@ const routes: Routes = [
   {path:'addmember',component:MemberComponent,canActivate: [AuthguradService]},
   {path:'groupmember',component:GroupMemberComponent,canActivate: [AuthguradService]},
 ];
-
+  
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

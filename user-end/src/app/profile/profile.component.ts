@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
   }
   updateProfile() {
 
-    this.auth.updateProfile(this.profileForm.value, this.profielData.msg[0]['u_id']).subscribe(res => {
+    this.auth.updateProfile(this.profileForm.value).subscribe(res => {
       if (res) {
         alert(res.msg);
         this.route.navigate(['/']);

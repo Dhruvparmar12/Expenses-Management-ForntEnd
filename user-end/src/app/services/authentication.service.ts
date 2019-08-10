@@ -78,7 +78,6 @@ export class AuthenticationService {
 
   public login(user: TokenPayload): Observable<any> {
     const base = this.http.post(url.myurl + `user/login`, user)
-
     const request = base.pipe(
       map((data: TokenResponse) => {
         if (data.token) {
@@ -109,11 +108,11 @@ export class AuthenticationService {
 
   public profile(): Observable<any> {
 
-    return this.http.get(url.myurl + `/user/profile`)
+    return this.http.get(url.myurl + `user/profile`)
   }
 
-  public updateProfile(data, id): Observable<any> {
+  public updateProfile(data): Observable<any> {
 
-    return this.http.patch(url.myurl + `/user/update/${id}`, data)
+    return this.http.patch(url.myurl + `user/update`, data)
   }
 }
